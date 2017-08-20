@@ -20,13 +20,14 @@ app.get('/', function (req, res) {
 
 
 app.post('/webhook/', function (req, res) {
-    let messaging_events = req.body.entry[0].messaging
+   console.log('Recieved Message'); 
+   let messaging_events = req.body.entry[0].messaging;
     for (let i = 0; i < messaging_events.length; i++) {
-	    let event = req.body.entry[0].messaging[i]
-	    let sender = event.sender.id
+	    let event = req.body.entry[0].messaging[i];
+	    let sender = event.sender.id;
 
 	    if (event.message && event.message.text && sender) {
-	    	let text = event.message.text
+	    	let text = event.message.text;
 			request({
 			    url: 'https://ai-andrew-chatbot-flask.herokuapp.com/prediction',
 			    method: 'POST',
@@ -35,7 +36,7 @@ app.post('/webhook/', function (req, res) {
 				json: true 
 			}, function(error, response, body) {
 				sendTextMessage(sender, response.body)
-			})
+			});
 	    }
     }
     res.sendStatus(200)
