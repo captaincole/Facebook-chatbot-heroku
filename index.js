@@ -29,7 +29,7 @@ app.post('/webhook/', function (req, res) {
 	    if (event.message && event.message.text && sender) {
 	    	let text = event.message.text;
 			request({
-			    url: 'https://ai-andrew-chatbot-flask.herokuapp.com/prediction',
+			    url: 'https://frasier-chat.herokuapp.com/prediction',
 			    method: 'POST',
 			    body: {message: text.substring(0, 200)},
 			    headers: {'User-Agent': 'request'},
