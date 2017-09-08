@@ -19,7 +19,7 @@ app.get('/', function (req, res) {
 })
 
 
-/* app.post('/webhook/', function (req, res) {
+app.post('/webhook/', function (req, res) {
    console.log('Recieved Message'); 
    let messaging_events = req.body.entry[0].messaging;
     for (let i = 0; i < messaging_events.length; i++) {
@@ -40,18 +40,18 @@ app.get('/', function (req, res) {
 	    }
     }
     res.sendStatus(200)
-}) */
+})
 
 // const token = "EAACFpvanSsMBABLt04GDsjbV91vFqNi10WdkfN0oYw3QrowTvX9QRaIrpwpqGPH1iDl8w9on8iacJ7ZBHGwmeGew90SDCEg0yTYwAdtmE1xzeBoqGiFca2G7P3PGoNUfDZAMfdKZAuIrZBIdUg3Y8Nvo5j3Wv3BJgJ0NN8lAJQZDZD"
 const frasierToken = 'EAAUSlV2jwCMBAO3p530EUDffbEUsGSG6z5zztRrBESUCT9ZBCMVdrPZAjQJFDRpdVjjDEKhnCaEvJmtWGpmPIOsVal9EIKdhO0ZCpDz4SW0feHXkvtHCSyhTtSS4acv5LrmBrmZAg5xRozcbzyvY1V1WBfi5cDM9I0G62ZBACNQZDZD';
 
 // for Facebook verification
-app.get('/webhook/', function (req, res) {
+/* app.get('/webhook/', function (req, res) {
 	if (req.query['hub.verify_token'] === 'my_voice_is_my_password_verify_me') {
 		res.send(req.query['hub.challenge'])
 	}
 	res.send('Error, wrong token')
-})
+}) */
 
 // Spin up the server
 app.listen(app.get('port'), function() {
